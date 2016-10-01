@@ -1,0 +1,9 @@
+diff a/HelloWorld.c b/HelloWorld.c	(rejected hunks)
+@@ -0,6 +0,7 @@
+ #include <stlib.h>
+ 
+ int main(){
++    printf("Hello!");
+     return 0;
+ 
+ }

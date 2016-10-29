@@ -2,14 +2,14 @@
 #include "biblioteca.h"
 
 int main () {
-    int a[] = {4, 65, 2, -31, 0, 99, 2, 83, 782, 1};
+    int a[] = {7,3,5,9,1,4,2};
     int i;
     printf("\nConjunto Desordenado:\t");
-    for (i = 0; i < 10; i++)
+    for (i = 0; i < 7; i++)
         printf("%d  ", a[i]);
     printf("\nConjunto Ordenado:\t");
-    shellsort(a, 10);
-    for (i = 0; i < 10; i++)
+    bolhasort(a, 7);
+    for (i = 0; i < 7; i++)
         printf("%d  ", a[i]);
     return 0;
 }

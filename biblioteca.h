@@ -86,24 +86,50 @@ void imprime(celula *lst){
 	printf("\n");
 }
 
-void insercaosort (int a[], int n) {
+void insercaosort (int v[], int n) {
     int i, j, aux;
     for (i = 1; i < n; i++) {
-    aux = a[i];
-    for (j = i; j >= 1 && aux < a[j - 1]; j = j - 1)
-        a[j] = a[j - 1];
-    a[j] = aux;
+    aux = v[i];
+    for (j = i; j >= 1 && aux < v[j - 1]; j = j - 1)
+        v[j] = v[j - 1];
+    v[j] = aux;
     }
 }
 
-void shellsort (int a[], int n) {
+void shellsort (int v[], int n) {
     int gap, i, j, aux;
     for (gap = n; gap>=1; gap = gap / 2) {
         for (i = gap; i < n; i++) {
-            aux = a[i];
-            for (j = i; j >= gap && aux < a[j - gap]; j = j - gap)
-                a[j] = a[j - gap];
-            a[j] = aux;
+            aux = v[i];
+            for (j = i; j >= gap && aux < v[j - gap]; j = j - gap)
+                v[j] = v[j - gap];
+            v[j] = aux;
         }
     }
+}
+
+void bolhasort(int v[], int n){
+    int i, j, aux;
+    for(i = n-1; i>0; i--)
+        for(j=1; j<=i; j++)
+            if(v[j-1]>v[j]){
+                aux = v[j];
+                v[j] = v[j-1];
+                v[j-1] = aux;
+            }
+
+}
+
+void selecaosort(int v[],int n){
+    int i, j, aux, menor;
+    for(i = 1; i < n; i++){
+        menor = i-1;
+        for (j = i; j<n; j++)
+            if(v[j] < v[menor])
+                menor = j;
+        aux = v[i-1];
+        v[i-1] = v[menor];
+        v[menor] = aux;
+    }
+
 }

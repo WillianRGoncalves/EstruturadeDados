@@ -2,7 +2,7 @@
 
 void shell_sort (int *a, int n) {
     int gap, i, j, aux;
-    for (gap = n; gap = gap / 2;) {
+    for (gap = n; gap>=1; gap = gap / 2) {
         for (i = gap; i < n; i++) {
             aux = a[i];
             for (j = i; j >= gap && aux < a[j - gap]; j = j - gap)

@@ -85,3 +85,25 @@ void imprime(celula *lst){
 		printf("%d", p->cont);
 	printf("\n");
 }
+
+void insercaosort (int a[], int n) {
+    int i, j, aux;
+    for (i = 1; i < n; i++) {
+    aux = a[i];
+    for (j = i; j >= 1 && aux < a[j - 1]; j = j - 1)
+        a[j] = a[j - 1];
+    a[j] = aux;
+    }
+}
+
+void shellsort (int a[], int n) {
+    int gap, i, j, aux;
+    for (gap = n; gap>=1; gap = gap / 2) {
+        for (i = gap; i < n; i++) {
+            aux = a[i];
+            for (j = i; j >= gap && aux < a[j - gap]; j = j - gap)
+                a[j] = a[j - gap];
+            a[j] = aux;
+        }
+    }
+}

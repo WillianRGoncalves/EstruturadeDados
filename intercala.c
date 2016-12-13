@@ -10,7 +10,7 @@ typedef struct cel{
 
 void insereM (int y, celula *p) {
 	celula *nova;
-	
+
 	nova=malloc (sizeof (celula));
 	nova->cont=y;
 	nova->seg=NULL;
@@ -21,7 +21,7 @@ void converte(int v[], int n, celula *lst){
 	celula *p;
 	p = lst;
 	int i;
-	
+
 	for (i=0 ; i<n ; i++, p=p->seg)
 		insereM (v[i],p);
 }
@@ -57,23 +57,23 @@ celula *intercala2 (celula *l1, celula *l2){
 
 
 celula *intercala (celula *l1, celula *l2){
-	
+
 	celula *p1;
 	p1=l1->seg;
-	
+
 	celula *p2;
 	p2=l2->seg;
-	
+
 	celula *l3;
 	l3=malloc(sizeof(celula));
 	l3->seg=NULL;
 	celula *p3;
 	p3=l3;
-	
+
 	while(p1!=NULL || p2!=NULL){
 		p3=insere(p3,p1);
 		p1=p1->seg;
-		
+
 		p3=insere(p3,p2);
 		p2=p2->seg;
 	}
@@ -89,31 +89,31 @@ void imprime(celula *lst){
 
 
 int main (){
-	
+
 	int v1[]={1,3,5,7,9};
 	int v2[]={2,4,6,8,10};
-	
+
 	celula *lp1;
 	celula *lp2;
 	celula *lp3;
-	
+
 	lp1=malloc(sizeof(celula));
 	lp1->seg=NULL;
 	lp2=malloc(sizeof(celula));
 	lp2->seg=NULL;
-	
+
 	converte (v1,5,lp1);
 	converte (v2,5,lp2);
-	
+
 	imprime(lp1);
 	imprime(lp2);
-	
+
 	//lp3=intercala(lp1,lp2);
 	lp3=intercala2(lp1,lp2);
 	imprime(lp3);
-	
+
 	return 0;
-	
+
 }
 
 
